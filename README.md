@@ -49,5 +49,5 @@ pip install -r requirements.txt
 streamlit run app3.py
 ## 🌐 Live Demo
 Try the live demo here:  
-👉 https://uberdynamicfareoptimizationengine.streamlit.app/
+👉 https://uberdynamicfareoptimizationengine-mdskrzc6pnaqtqgry4pqh5.streamlit.app/
 
