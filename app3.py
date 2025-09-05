@@ -11,7 +11,26 @@ from fpdf import FPDF
 import datetime
 
 # --- Load Dataset and Model ---
-merged_clean = pd.read_csv("cleaned_dataset.csv")
+import os
+import gdown
+import pandas as pd
+import streamlit as st
+
+@st.cache_data(show_spinner=False)
+def get_data_from_drive(file_id, fname="cleaned_dataset.csv"):
+    # 1) If file is already present locally, just load it
+    if os.path.exists(fname):
+        return pd.read_csv(fname)
+
+    # 2) Otherwise, download from Google Drive
+    url = f"https://drive.google.com/uc?id={file_id}"
+    gdown.download(url, fname, quiet=False)
+
+    return pd.read_csv(fname)
+
+# Use the correct file ID from your Drive link
+DRIVE_FILE_ID = "1Y0AgBw5hotx0ucjuzwkBvo-ArpO8ZS2U"
+merged_clean = get_data_from_drive(DRIVE_FILE_ID)
 ann_model = keras.models.load_model("ann_model.keras")
 
 # --- Preprocessor ---
@@ -239,3 +258,4 @@ with tab4:
             file_name="dynamic_pricing_report.pdf",
             mime="application/pdf"
         )
+
