@@ -21,7 +21,7 @@ LOCAL_FNAME = "cleaned_dataset.csv"
 ANN_MODEL_PATH = "ann_model.keras"  # ensure model file exists or upload
 
 st.set_page_config(page_title="Dynamic Pricing Engine", layout="wide")
-st.title("🚖 Dynamic Pricing Engine Dashboard")
+st.title("🚖 Uber's Dynamic Fare Optimization Engine ")
 
 # ---------------------------- Data loader with fallback ----------------------------
 @st.cache_data(show_spinner=False)
