@@ -3,9 +3,10 @@ pandas
 numpy
 matplotlib
 scikit-learn
-tensorflow-cpu==2.15.0
+tensorflow
 shap
 fpdf
 gdown
+
 
 
